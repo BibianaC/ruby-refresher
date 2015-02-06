@@ -10,12 +10,12 @@ end
 
 # remove instances of nil (but NOT false) from an array
 def remove_nils_from_array(array)
-  array.delete_if { |word| word == nil }
+  array.compact
 end
 
 # remove instances of nil AND false from an array
 def remove_nils_and_false_from_array(array)
-  array.delete_if { |word| word == nil || word == false }
+  array.compact.delete_if { |word| word == false }
 end
 
 # don't reverse the array, but reverse every word inside it. e.g.
@@ -102,6 +102,7 @@ end
 
 # convert a symbol into a string
 def turn_symbol_into_string(symbol)
+  symbol.to_s
 end
 
 # get the average from an array, rounded to the nearest integer
@@ -130,8 +131,6 @@ end
 # . e.g. the array ['cat', 'dog', 'fish'] becomes
 # ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
 def get_all_letters_in_array_of_words(array)
-  # array.each {|word| print word.split(//)}.join('')
-  # array.each {|word| print word.split(//)}
   array.join('').split(//).sort
 end
 
@@ -139,12 +138,14 @@ end
 # {'a' => 'b', 'c' => 'd'} becomes
 # {'b' => 'a', 'd' => 'c'}
 def swap_keys_and_values_in_a_hash(hash)
+  hash.invert
 end
 
 # in a hash where the keys and values are all numbers
 # add all the keys and all the values together, e.g.
 # {1 => 1, 2 => 2} becomes 6
 def add_together_keys_and_values(hash)
+  hash.flatten.inject(:+)
 end
 
 # take out all the capital letters from a string
