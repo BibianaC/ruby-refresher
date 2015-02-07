@@ -194,10 +194,10 @@ describe 'the Friday test :)' do
     expect(b).to eq 1.7320508075688772
   end
 
-  # it 'word_count_a_file' do
-  #   n = word_count_a_file 'data/lorem.txt'
-  #   expect(n).to eq 70
-  # end
+  it 'word_count_a_file' do
+    n = word_count_a_file 'data/lorem.txt'
+    expect(n).to eq 70
+  end
 
   # --- tougher ones ---
 

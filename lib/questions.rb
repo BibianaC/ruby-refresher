@@ -203,6 +203,7 @@ end
 # should return true for a 3 dot range like 1...20, false for a 
 # normal 2 dot range
 def is_a_3_dot_range?(range)
+  
 end
 
 # get the square root of a number
@@ -212,7 +213,7 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
-
+  File.open(file_path).read.split(' ').count
 end
 
 # --- tougher ones ---
