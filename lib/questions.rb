@@ -21,7 +21,7 @@ end
 # don't reverse the array, but reverse every word inside it. e.g.
 # ['dog', 'monkey'] becomes ['god', 'yeknom']
 def reverse_every_element_in_array(array)
-  array.map {|word| word.reverse }
+  array.map(&:reverse)
 end
 
 # given an array of student names, like ['Bob', 'Dave', 'Clive']
@@ -59,7 +59,7 @@ end
 # turn a positive integer into a negative integer. A negative integer
 # stays negative
 def make_numbers_negative(number)
-  number >= 0 ? - number : number
+  -number.abs
 end
 
 # turn an array of numbers into two arrays of numbers, one an array of 
@@ -97,7 +97,7 @@ end
 # turn an array into itself repeated twice. So [1, 2, 3]
 # becomes [1, 2, 3, 1, 2, 3]
 def double_array(array)
-  array.concat(array)
+  array + array
 end
 
 # convert a symbol into a string
