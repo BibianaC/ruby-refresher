@@ -260,4 +260,17 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
+  def ninety_nine_bottles_of_beer
+  num_start = 5
+
+  beer_calculator = Proc.new { |n| "#{n} bottle#{ n == 1 ? '' : 's'}"}
+
+  num_start.downto(2) do |num| 
+    puts "#{beer_calculator[num]} of beer on the wall, #{beer_calculator[num]} bottles of beer!"
+    puts "Take one down, pass it around, #{beer_calculator[num - 1]} of beer on the wall"
+  end 
+
+  puts "#{beer_calculator[1]} of beer on the wall, #{beer_calculator[1]} of beer"
+  puts "Take one down, pass it around, no more bottles of beer on the wall"
+end
 end

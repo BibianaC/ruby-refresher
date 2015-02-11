@@ -201,9 +201,9 @@ describe 'the Friday test :)' do
 
   # --- tougher ones ---
 
-  # it 'call_method_from_string' do
-  #   expect { call_method_from_string('foobar') }.to raise_error(NameError)
-  # end
+  it 'call_method_from_string' do
+    expect { call_method_from_string('foobar') }.to raise_error(NameError)
+  end
 
   # it 'is_a_2014_bank_holiday?' do
   #   a = is_a_2014_bank_holiday?(Time.new(2014, 8, 25))
