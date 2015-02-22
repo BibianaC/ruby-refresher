@@ -1,3 +1,5 @@
+require 'httparty'
+
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
   array.select {|word| word[0] == 'a'}
@@ -230,6 +232,9 @@ end
 # the list of bank holidays is here:
 # https://www.gov.uk/bank-holidays
 def is_a_2014_bank_holiday?(date)
+  dates = HTTParty.get('https://www.gov.uk/bank-holidays.json')["england-and-wales"]["events"]
+  b_hols = dates.collect { |entry| entry['date'] }
+  b_hols.include?(date.strftime "%Y-%m-%d")
 end
 
 # given your birthday this year, this method tells you
@@ -277,7 +282,6 @@ end
 # at the end.
 # (there's no RSpec test for this one)
 def ninety_nine_bottles_of_beer
-  def ninety_nine_bottles_of_beer
   num_start = 5
 
   beer_calculator = Proc.new { |n| "#{n} bottle#{ n == 1 ? '' : 's'}"}
@@ -289,5 +293,4 @@ def ninety_nine_bottles_of_beer
 
   puts "#{beer_calculator[1]} of beer on the wall, #{beer_calculator[1]} of beer"
   puts "Take one down, pass it around, no more bottles of beer on the wall"
-end
 end
